@@ -22,11 +22,7 @@ export default {
     Film
   },
   created() {
-    fetch("http://www.omdbapi.com/?apikey=4f0d0cd0&t=Fast")
-      .then(res => res.json())
-      .then(res => {
-        this.films = res;
-      });
+    this.searchingFilm("Fast");
   },
   data() {
     return {
@@ -37,7 +33,7 @@ export default {
   methods: {
     searchingFilm(query) {
       this.films = [];
-      fetch("http://www.omdbapi.com/?apikey=4f0d0cd0&t=" + query)
+      fetch("https://www.omdbapi.com/?apikey=4f0d0cd0&t=" + query)
         .then(res => res.json())
         .then(res => {
           this.films = res;
