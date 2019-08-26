@@ -15,4 +15,4 @@ Sentry.init({
   ],
 });
 
-Sentry.captureException(new Error('hello vue'));
+Sentry.captureException(new Error('Error in my-project'));

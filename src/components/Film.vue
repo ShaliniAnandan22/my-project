@@ -30,12 +30,18 @@
     <div v-bind="films" v-if="films.Error=='Movie not found!'">
       <p>{{films.Error}}</p>
     </div>
+    <button @click="error()">Click this to throw error</button>
   </div>
 </template>
 
 <script>
 export default {
-  props: ["films"]
+  props: ["films"],
+  methods: {
+    error() {
+      console.log(JSON.parse("hai"));
+    }
+  }
 };
 </script>
 
