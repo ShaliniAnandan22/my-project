@@ -10,6 +10,8 @@
     "build": "cross-env NODE_ENV=production webpack --progress --hide-modules"
   },
   "dependencies": {
+    "@sentry/browser": "^5.6.2",
+    "@sentry/integrations": "^5.6.1",
     "vue": "^2.5.11"
   },
   "browserslist": [

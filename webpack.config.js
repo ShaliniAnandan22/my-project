@@ -1,11 +1,10 @@
-var path = require('path');
-var webpack = require('webpack');
-const SentryWebpackPlugin = require('@sentry/webpack-plugin');
+var path = require ('path');
+var webpack = require ('webpack');
 
 module.exports = {
   entry: './src/main.js',
   output: {
-    path: path.resolve(__dirname, './dist'),
+    path: path.resolve (__dirname, './dist'),
     publicPath: '/dist/',
     filename: 'build.js',
   },
@@ -70,32 +69,24 @@ module.exports = {
     hints: false,
   },
   devtool: '#eval-source-map',
-  plugins: [
-    new SentryWebpackPlugin({
-      include: '.',
-      ignoreFile: '.sentrycliignore',
-      ignore: ['node_modules', 'webpack.config.js'],
-      configFile: 'sentry.properties',
-    }),
-  ],
 };
 
 if (process.env.NODE_ENV === 'production') {
   module.exports.devtool = '#source-map';
   // http://vue-loader.vuejs.org/en/workflow/production.html
-  module.exports.plugins = (module.exports.plugins || []).concat([
-    new webpack.DefinePlugin({
+  module.exports.plugins = (module.exports.plugins || []).concat ([
+    new webpack.DefinePlugin ({
       'process.env': {
         NODE_ENV: '"production"',
       },
     }),
-    new webpack.optimize.UglifyJsPlugin({
+    new webpack.optimize.UglifyJsPlugin ({
       sourceMap: true,
       compress: {
         warnings: false,
       },
     }),
-    new webpack.LoaderOptionsPlugin({
+    new webpack.LoaderOptionsPlugin ({
       minimize: true,
     }),
   ]);
